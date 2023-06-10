@@ -20,7 +20,7 @@ It provides a user-friendly interface to perform various tasks related to e-comm
 - Secure user authentication and authorization.
 - Product management: Add, update, search and delete products.
 - Customer management: Manage customer information.
-- 
+ 
 ## Installation
 
 To run the E-commerce Dashboard locally, follow these steps:
@@ -35,7 +35,7 @@ npm install
 3. Configure environment variables:
 - Add the required environment variables (e.g., database connection details, secret keys, etc.).
 
-4. Start the development server:
+4. Start the backend and frontend server:
 npm start
 
 5. Open the application in your web browser:
