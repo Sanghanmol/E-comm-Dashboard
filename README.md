@@ -26,10 +26,10 @@ It provides a user-friendly interface to perform various tasks related to e-comm
 To run the E-commerce Dashboard locally, follow these steps:
 
 1. Clone the repository:
-git clone https://github.com/your-username/e-commerce-dashboard.git
+git clone https://github.com/Sanghanmol/E-comm-Dashboard
 
 2. Install dependencies:
-cd e-commerce-dashboard
+cd e-comm-dashboard
 npm install
 
 3. Configure environment variables:
