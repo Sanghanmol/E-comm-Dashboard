@@ -6,7 +6,7 @@ const Product = require("./db/Product");
 const app = express();
 
 const Jwt = require('jsonwebtoken');
-const jwtKey = 'e-comm';
+const jwtKey = 'your-key';
 
 app.use(express.json());
 app.use(cors());
