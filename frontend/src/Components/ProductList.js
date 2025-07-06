@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+const API_BASE_URL = process.env.NODE_ENV === "production" ? "" : "http://localhost:4000"; 
+
 const ProductList = () => {
   const [products, setProducts] = useState([]);
 
@@ -10,7 +12,7 @@ const ProductList = () => {
 
   const getProducts = async () => {
     try {
-      let result = await fetch("http://localhost:4000/products", {
+      let result = await fetch(`${API_BASE_URL}/products`, {
         headers: {
           authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
@@ -23,7 +25,7 @@ const ProductList = () => {
   };
 
   const deleteProduct = async (id) => {
-    let result = await fetch(`http://localhost:4000/product/${id}`, {
+    let result = await fetch(`${API_BASE_URL}/product/${id}`, {
       method: "Delete",
       headers: {
         authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
@@ -38,7 +40,7 @@ const ProductList = () => {
   const searchHandle = async (event) => {
     let key = event.target.value;
     if (key) {
-      let result = await fetch(`http://localhost:4000/search/${key}`, {
+      let result = await fetch(`${API_BASE_URL}/search/${key}`, {
         headers: {
           authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
@@ -54,8 +56,8 @@ const ProductList = () => {
 
   return (
     <div className="product-list">
+      <h1 className="product-heading">Product List</h1>
       <div className="sub-heading">
-        <h1>Product List</h1>
         <input
           type="text"
           className="search-product-box"

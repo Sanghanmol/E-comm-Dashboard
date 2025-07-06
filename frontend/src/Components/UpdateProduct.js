@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
 
+const API_BASE_URL = process.env.NODE_ENV === "production" ? "" : "http://localhost:4000"; 
+
 const UpdateProduct = () => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
@@ -12,7 +14,7 @@ const UpdateProduct = () => {
 
     const getProductDetails = useCallback(async () => {
         console.log(params);
-        let result = await fetch(`http://localhost:4000/product/${params.id}`, {
+        let result = await fetch(`${API_BASE_URL}/${params.id}`, {
             headers: {
                 authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
             }
@@ -31,7 +33,7 @@ const UpdateProduct = () => {
 
     const updateProduct = async () => {
         console.log(name, price, category, company, image)
-        let result = await fetch(`http://localhost:4000/product/${params.id}`, {
+        let result = await fetch(`${API_BASE_URL}/product/${params.id}`, {
             method: 'put',
             body: JSON.stringify({ name, price, category, company, image }),
             headers: {

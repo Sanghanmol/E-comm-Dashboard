@@ -27,7 +27,7 @@ function App() {
           <Route path='/login' element={<Login/>} />
         </Routes> 
       </BrowserRouter>
-     <Footer/>   {/* footer has no route so put after browserRouter*/}
+     <Footer/>
     </div >
   );
 }

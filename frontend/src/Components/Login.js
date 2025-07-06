@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL = process.env.NODE_ENV === "production" ? "" : "http://localhost:4000"; 
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +15,7 @@ const Login = () => {
       password,
       repeatPassword
     );
-    let result = await fetch("http://localhost:4000/login", {
+    let result = await fetch(`${API_BASE_URL}/login`, {
       method: "post",
       body: JSON.stringify({ email, password, repeatPassword }),
       headers: {

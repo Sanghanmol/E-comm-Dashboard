@@ -8,16 +8,18 @@ const SignUp = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const navigate = useNavigate();
 
+  const API_BASE_URL = process.env.NODE_ENV === "production" ? "" : "http://localhost:4000"; 
+
   useEffect(() => {
     const auth = localStorage.getItem("user");
     if (auth) {
       navigate("/");
     }
   });
-  // connecting frontend of sign up with backend
+
   const collectData = async () => {
     console.log(name, email, password, repeatPassword);
-    let result = await fetch("http://localhost:4000/register", {
+    let result = await fetch(`${API_BASE_URL}/register`, {
       method: "post",
       body: JSON.stringify({ name, email, password, repeatPassword }),
       headers: {
